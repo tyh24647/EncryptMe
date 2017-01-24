@@ -7,16 +7,51 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var user: User!
     var window: UIWindow?
-
+    var dataManager: FBDataManager!
+    var appData: AppData!
+    var loginManager: LoginManager!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // init data manager
+        self.dataManager = FBDataManager()
+        
+        // init login manager
+        self.lo
+        
+        // pass data manager to the app data class to allow for retrieving the correct defaults
+        self.appData =  AppData.init(withDataManager: dataManager)
+        
+        #if DEBUG
+            user = User()
+            user.username = String.UserDefaults.AdminUsername.rawValue
+            user.password = String.UserDefaults.AdminPassword.rawValue
+        #else
+            if appData.userIsLoggedIn {
+                user = appData.savedUser
+            } else {
+                user = User()
+                if user.isAdmin {
+                    user.username = String.UserDefaults.AdminUsername.rawValue
+                    user.password = String.UserDefaults.AdminPassword.rawValue
+                } else {
+                    user.username = String.UserDefaults.DefaultUsername.rawValue
+                    user.password = String.UserDefaults.DefaultPassword.rawValue
+                }
+            }
+        #endif
+        
         return true
+    }
+    
+    func promptForLogin() -> Void {
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

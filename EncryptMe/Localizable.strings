@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  EncryptMe
+
+  Created by Tyler hostager on 1/23/17.
+  Copyright © 2017 Tyler Hostager. All rights reserved.
+*/
+
+"Invalid User"="Invalid User"
+"No User Account Created"="No User Account Created"
+"Validation overridden - debug mode enabled"="Validation overridden - debug mode enabled"
+"No User Account Created"="No User Account Created"
+
