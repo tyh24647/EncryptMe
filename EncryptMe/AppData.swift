@@ -8,6 +8,8 @@
 
 import Foundation
 
+///
+///
 public class AppData {
     // global shared instance of this class to be used throughout the application
     static let sharedInstance = AppData()
@@ -15,6 +17,7 @@ public class AppData {
     // init vars
     var userIsLoggedIn: Bool!
     var savedUser: User!
+    var appDefaults: AppDefaults!
     
     // data manager object which cannot be null
     var dataManager: FBDataManager! {
@@ -25,8 +28,8 @@ public class AppData {
         }
     }
     
-    // default constructor
     init() {
+        self.appDefaults = generateAppDefaults()
         self.dataManager = generateDataManager()
         self.userIsLoggedIn = isLoggedIn()
     }
@@ -41,6 +44,17 @@ public class AppData {
         dMgr.user = self.savedUser ?? User()
         
         return dMgr
+    }
+    
+    fileprivate func generateAppDefaults() -> AppDefaults {
+        var defaults: AppDefaults!
+        
+        // do any defaults setup here
+        
+        defaults = AppDefaults()
+        // TODO: add more functionality
+        
+        return defaults
     }
     
     private func isLoggedIn() -> Bool {

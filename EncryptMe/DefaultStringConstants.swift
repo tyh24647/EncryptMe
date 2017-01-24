@@ -83,5 +83,14 @@ extension String {
         
         // TODO
     }
+    
+    enum Dispatch: String {
+        case Background = "background_thread"
+        case Default = "thread1"
+        
+        init() {
+            self = .Default
+        }
+    }
 }
 
