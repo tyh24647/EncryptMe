@@ -8,9 +8,8 @@
 
 import Foundation
 
-///
-///
 public class AppData {
+    
     // global shared instance of this class to be used throughout the application
     static let sharedInstance = AppData()
     
@@ -70,9 +69,12 @@ public class AppData {
     }
     
     static func hasSavedAppData() -> Bool {
+        var hasData: Bool!
         
-        // TODO
+        hasData = false
         
-        return false
+        // TODO check if file exists at path
+        
+        return hasData
     }
 }

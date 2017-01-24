@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var dataManager: FBDataManager!
     var appData: AppData!
     var loginManager: LoginManager!
+    var userDataManager: UserDataManager!
+    var userPlistFile: PropertyListSerialization!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -51,6 +53,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.loginManager = LoginManager(withCredentials: self.credentials)
         loginManager.login()
         
+        // init user data manager
+        self.userDataManager = UserDataManager()
+        
+        /*
+        userDataManager.genrateUserPlistFile(withCompletion: { success, err in
+            do {
+                try 
+            } catch NSException e {
+                
+            }
+        })
+ */
+        
+        
         return true
     }
     
@@ -79,11 +95,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         
+        /*
         let saveUserPlistTask = DispatchWorkItem(qos: .userInitiated, flags: .assignCurrentContext, block: {
-            
+            do {
+                try self.userPlistFile = self.userDataManager.genrateUserPlistFile(withCompletion: { success, err in
+                    
+                })
+            } catch {
+                //err =
+            }
         })
         
-        AsyncTask.addAsyncTaskWithCompletion(, completion: <#T##() -> Bool#>)
+        AsyncTask().addAsyncTaskToBackgroundThread(saveUserPlistTask)
+ */
     }
 
 

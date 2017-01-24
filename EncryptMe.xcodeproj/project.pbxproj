@@ -33,6 +33,10 @@
 		1AE581741E3718EB0050FA6D /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE581731E3718EB0050FA6D /* LoginManager.swift */; };
 		1AE581761E372C690050FA6D /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE581751E372C690050FA6D /* Credentials.swift */; };
 		1AE581781E372EDA0050FA6D /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = 1AE581771E372EDA0050FA6D /* ReadMe.md */; };
+		1AE5817C1E374E9A0050FA6D /* AsyncTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5817B1E374E9A0050FA6D /* AsyncTask.swift */; };
+		1AE5817E1E375C810050FA6D /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5817D1E375C810050FA6D /* UserDataManager.swift */; };
+		1AE581801E375E3A0050FA6D /* SynchronousTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5817F1E375E3A0050FA6D /* SynchronousTask.swift */; };
+		1AE581821E375ED50050FA6D /* DispatchQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE581811E375ED50050FA6D /* DispatchQueues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,10 @@
 		1AE581731E3718EB0050FA6D /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		1AE581751E372C690050FA6D /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		1AE581771E372EDA0050FA6D /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+		1AE5817B1E374E9A0050FA6D /* AsyncTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncTask.swift; sourceTree = "<group>"; };
+		1AE5817D1E375C810050FA6D /* UserDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
+		1AE5817F1E375E3A0050FA6D /* SynchronousTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronousTask.swift; sourceTree = "<group>"; };
+		1AE581811E375ED50050FA6D /* DispatchQueues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueues.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +126,10 @@
 				1AA496F11E369C1D000A70ED /* Assets.xcassets */,
 				1AA496F61E369C1D000A70ED /* Info.plist */,
 				1AE5814C1E36E1A90050FA6D /* Constants */,
-				1AE581681E36F9FB0050FA6D /* AppData */,
+				1AE581791E374E720050FA6D /* Utilities */,
+				1A545BD61E36A7C800F15E31 /* Models */,
 				1AA496FC1E369CD1000A70ED /* User Interface */,
+				1AE581681E36F9FB0050FA6D /* AppData */,
 				1AE581651E36F8EE0050FA6D /* Data Managers */,
 				1AE581621E36F66D0050FA6D /* Storyboards */,
 				1AE5816E1E370D120050FA6D /* Debug */,
@@ -133,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				1AE5814B1E36DB020050FA6D /* Preferences */,
-				1A545BD61E36A7C800F15E31 /* Models */,
 				1AA497081E36A2FF000A70ED /* UI Objects */,
 				1AA496FD1E369CDE000A70ED /* View Controllers */,
 			);
@@ -172,8 +181,8 @@
 		1AE5814C1E36E1A90050FA6D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				1AE581521E36E57B0050FA6D /* Strings */,
 				1AE581551E36E5CC0050FA6D /* Misc */,
+				1AE581521E36E57B0050FA6D /* Strings */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -235,6 +244,7 @@
 			children = (
 				1A545C3C1E36D43200F15E31 /* FBDataManager.swift */,
 				1AE581731E3718EB0050FA6D /* LoginManager.swift */,
+				1AE5817D1E375C810050FA6D /* UserDataManager.swift */,
 			);
 			name = "Data Managers";
 			sourceTree = "<group>";
@@ -277,6 +287,24 @@
 				1AE5816F1E370D220050FA6D /* Console.swift */,
 			);
 			name = Debug;
+			sourceTree = "<group>";
+		};
+		1AE581791E374E720050FA6D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1AE5817A1E374E850050FA6D /* Tasks */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		1AE5817A1E374E850050FA6D /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				1AE5817B1E374E9A0050FA6D /* AsyncTask.swift */,
+				1AE5817F1E375E3A0050FA6D /* SynchronousTask.swift */,
+				1AE581811E375ED50050FA6D /* DispatchQueues.swift */,
+			);
+			name = Tasks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,13 +393,17 @@
 				1A545C661E36DA3500F15E31 /* AppPrefsModel.swift in Sources */,
 				1AE5816D1E3703100050FA6D /* AppDefaults.swift in Sources */,
 				1A545C3B1E36D36700F15E31 /* File.swift in Sources */,
+				1AE581821E375ED50050FA6D /* DispatchQueues.swift in Sources */,
+				1AE5817C1E374E9A0050FA6D /* AsyncTask.swift in Sources */,
 				1A545C3D1E36D43200F15E31 /* FBDataManager.swift in Sources */,
 				1AA497031E36A006000A70ED /* FilesViewNavController.swift in Sources */,
+				1AE581801E375E3A0050FA6D /* SynchronousTask.swift in Sources */,
 				1AA497011E369D31000A70ED /* MainTabBarControllerViewController.swift in Sources */,
 				1AE5815B1E36F06C0050FA6D /* FilesTableViewController.swift in Sources */,
 				1AE581701E370D220050FA6D /* Console.swift in Sources */,
 				1AE5816A1E36FA0F0050FA6D /* AppData.swift in Sources */,
 				1A545C641E36D9C600F15E31 /* UserPrefsModel.swift in Sources */,
+				1AE5817E1E375C810050FA6D /* UserDataManager.swift in Sources */,
 				1AE581741E3718EB0050FA6D /* LoginManager.swift in Sources */,
 				1AE581541E36E5A10050FA6D /* String+Localizable.swift in Sources */,
 				1AE5815F1E36F6490050FA6D /* FBFileTableViewCell.swift in Sources */,

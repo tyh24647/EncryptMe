@@ -16,6 +16,10 @@ protocol AsyncTask {
 
 extension DispatchQueue: AsyncTask {
     
+    init() {
+        // do nothing for now
+    }
+    
     static func addAsyncTaskWithCompletion(_ task: DispatchWorkItem, completion: (Bool, NSError?) -> Void) {
         var success = false
         DispatchQueues.MainQueue.async {

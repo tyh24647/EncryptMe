@@ -57,8 +57,6 @@ class User {
     }
     #endif
     
-    private var isAdmin: Bool!
-    
     private var hasSavedPrefsData: Bool! {
         get {
             return self.hasSavedPrefsData
@@ -71,6 +69,10 @@ class User {
         get {
             var hasFull = false
             
+            if isAdmin {
+                hasFull = true
+            }
+            
             return hasFull
         } set {
             // TODO
@@ -81,9 +83,13 @@ class User {
     var username: String!
     var password: String!
     
+    private var isAdmin: Bool
+    
     var hasReadPermissions: Bool!
     var hasWritePermissions: Bool!
     var hasDefaultPermissions: Bool!
+    
+    var credentials: Credentials!
     
     init() {
         initDefaultUser()
@@ -105,6 +111,7 @@ class User {
         if enabled {
             self.username = String.UserDefaults.AdminUsername.rawValue
             self.password = String.UserDefaults.AdminPassword.rawValue
+            self.credentials = Credentials.init(withUsername: username, password: password)
             self.isAdmin = true
             self.userType = .Debug
         } else {
@@ -116,6 +123,7 @@ class User {
     func initDefaultUser() -> Void {
         self.username = String.UserDefaults.DefaultUsername.rawValue
         self.password = String.UserDefaults.DefaultPassword.rawValue
+        self.credentials = Credentials.init(withUsername: username, password: password)
         self.isAdmin = false
         self.userType = .Default
     }
@@ -149,6 +157,9 @@ class User {
                 self.userType = .Default
             }
         #endif
+        
+        // init credentials
+        self.credentials = Credentials.init(withUsername: self.username, password: self.password)
     }
     
     fileprivate func validateUserAccount() -> Void {
