@@ -7,23 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A545BD81E36A7E800F15E31 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A545BD71E36A7E800F15E31 /* User.swift */; };
+		1A545BE41E36B2B000F15E31 /* FBItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A545BE31E36B2B000F15E31 /* FBItem.swift */; };
+		1A545C3B1E36D36700F15E31 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A545C3A1E36D36700F15E31 /* File.swift */; };
+		1A545C3D1E36D43200F15E31 /* FBDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A545C3C1E36D43200F15E31 /* FBDataManager.swift */; };
+		1A545C641E36D9C600F15E31 /* UserPrefsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A545C631E36D9C600F15E31 /* UserPrefsModel.swift */; };
+		1A545C661E36DA3500F15E31 /* AppPrefsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A545C651E36DA3500F15E31 /* AppPrefsModel.swift */; };
 		1AA496E91E369C1D000A70ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA496E81E369C1D000A70ED /* AppDelegate.swift */; };
-		1AA496EB1E369C1D000A70ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA496EA1E369C1D000A70ED /* FirstViewController.swift */; };
-		1AA496ED1E369C1D000A70ED /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA496EC1E369C1D000A70ED /* SecondViewController.swift */; };
+		1AA496ED1E369C1D000A70ED /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA496EC1E369C1D000A70ED /* SettingsViewController.swift */; };
 		1AA496F01E369C1D000A70ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AA496EE1E369C1D000A70ED /* Main.storyboard */; };
 		1AA496F21E369C1D000A70ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA496F11E369C1D000A70ED /* Assets.xcassets */; };
 		1AA496F51E369C1D000A70ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AA496F31E369C1D000A70ED /* LaunchScreen.storyboard */; };
+		1AA497011E369D31000A70ED /* MainTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA497001E369D31000A70ED /* MainTabBarControllerViewController.swift */; };
+		1AA497031E36A006000A70ED /* FilesViewNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA497021E36A006000A70ED /* FilesViewNavController.swift */; };
+		1AE5814E1E36E23A0050FA6D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AE5814D1E36E23A0050FA6D /* Localizable.strings */; };
+		1AE581511E36E2850050FA6D /* DefaultStringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE581501E36E2850050FA6D /* DefaultStringConstants.swift */; };
+		1AE581541E36E5A10050FA6D /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE581531E36E5A10050FA6D /* String+Localizable.swift */; };
+		1AE5815B1E36F06C0050FA6D /* FilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5815A1E36F06C0050FA6D /* FilesTableViewController.swift */; };
+		1AE5815C1E36F2C00050FA6D /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A545C611E36D95800F15E31 /* DataModel.swift */; };
+		1AE5815F1E36F6490050FA6D /* FBFileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5815D1E36F6490050FA6D /* FBFileTableViewCell.swift */; };
+		1AE581601E36F6490050FA6D /* FBFileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE5815E1E36F6490050FA6D /* FBFileTableViewCell.xib */; };
+		1AE5816A1E36FA0F0050FA6D /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE581691E36FA0F0050FA6D /* AppData.swift */; };
+		1AE5816D1E3703100050FA6D /* AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5816C1E3703100050FA6D /* AppDefaults.swift */; };
+		1AE581701E370D220050FA6D /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5816F1E370D220050FA6D /* Console.swift */; };
+		1AE581741E3718EB0050FA6D /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE581731E3718EB0050FA6D /* LoginManager.swift */; };
+		1AE581761E372C690050FA6D /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE581751E372C690050FA6D /* Credentials.swift */; };
+		1AE581781E372EDA0050FA6D /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = 1AE581771E372EDA0050FA6D /* ReadMe.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A545BD71E36A7E800F15E31 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1A545BE31E36B2B000F15E31 /* FBItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBItem.swift; sourceTree = "<group>"; };
+		1A545C3A1E36D36700F15E31 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		1A545C3C1E36D43200F15E31 /* FBDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBDataManager.swift; sourceTree = "<group>"; };
+		1A545C611E36D95800F15E31 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		1A545C631E36D9C600F15E31 /* UserPrefsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPrefsModel.swift; sourceTree = "<group>"; };
+		1A545C651E36DA3500F15E31 /* AppPrefsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPrefsModel.swift; sourceTree = "<group>"; };
 		1AA496E51E369C1D000A70ED /* EncryptMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA496E81E369C1D000A70ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1AA496EA1E369C1D000A70ED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		1AA496EC1E369C1D000A70ED /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		1AA496EC1E369C1D000A70ED /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1AA496EF1E369C1D000A70ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AA496F11E369C1D000A70ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AA496F41E369C1D000A70ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AA496F61E369C1D000A70ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AA497001E369D31000A70ED /* MainTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarControllerViewController.swift; sourceTree = "<group>"; };
+		1AA497021E36A006000A70ED /* FilesViewNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewNavController.swift; sourceTree = "<group>"; };
+		1AE5814D1E36E23A0050FA6D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		1AE581501E36E2850050FA6D /* DefaultStringConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultStringConstants.swift; sourceTree = "<group>"; };
+		1AE581531E36E5A10050FA6D /* String+Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		1AE5815A1E36F06C0050FA6D /* FilesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesTableViewController.swift; sourceTree = "<group>"; };
+		1AE5815D1E36F6490050FA6D /* FBFileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBFileTableViewCell.swift; sourceTree = "<group>"; };
+		1AE5815E1E36F6490050FA6D /* FBFileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FBFileTableViewCell.xib; sourceTree = "<group>"; };
+		1AE581691E36FA0F0050FA6D /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		1AE5816C1E3703100050FA6D /* AppDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDefaults.swift; sourceTree = "<group>"; };
+		1AE5816F1E370D220050FA6D /* Console.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
+		1AE581731E3718EB0050FA6D /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		1AE581751E372C690050FA6D /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		1AE581771E372EDA0050FA6D /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +77,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A545BD61E36A7C800F15E31 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A545BD71E36A7E800F15E31 /* User.swift */,
+				1A545BE31E36B2B000F15E31 /* FBItem.swift */,
+				1A545C3A1E36D36700F15E31 /* File.swift */,
+				1A545C611E36D95800F15E31 /* DataModel.swift */,
+				1AE581751E372C690050FA6D /* Credentials.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1A545BDC1E36ABD600F15E31 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		1AA496DC1E369C1D000A70ED = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +115,168 @@
 		1AA496E71E369C1D000A70ED /* EncryptMe */ = {
 			isa = PBXGroup;
 			children = (
-				1AA496E81E369C1D000A70ED /* AppDelegate.swift */,
-				1AA496EA1E369C1D000A70ED /* FirstViewController.swift */,
-				1AA496EC1E369C1D000A70ED /* SecondViewController.swift */,
-				1AA496EE1E369C1D000A70ED /* Main.storyboard */,
 				1AA496F11E369C1D000A70ED /* Assets.xcassets */,
-				1AA496F31E369C1D000A70ED /* LaunchScreen.storyboard */,
 				1AA496F61E369C1D000A70ED /* Info.plist */,
+				1AE5814C1E36E1A90050FA6D /* Constants */,
+				1AE581681E36F9FB0050FA6D /* AppData */,
+				1AA496FC1E369CD1000A70ED /* User Interface */,
+				1AE581651E36F8EE0050FA6D /* Data Managers */,
+				1AE581621E36F66D0050FA6D /* Storyboards */,
+				1AE5816E1E370D120050FA6D /* Debug */,
+				1AA496E81E369C1D000A70ED /* AppDelegate.swift */,
+				1AE581771E372EDA0050FA6D /* ReadMe.md */,
 			);
 			path = EncryptMe;
+			sourceTree = "<group>";
+		};
+		1AA496FC1E369CD1000A70ED /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				1AE5814B1E36DB020050FA6D /* Preferences */,
+				1A545BD61E36A7C800F15E31 /* Models */,
+				1AA497081E36A2FF000A70ED /* UI Objects */,
+				1AA496FD1E369CDE000A70ED /* View Controllers */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		1AA496FD1E369CDE000A70ED /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1AE581671E36F92A0050FA6D /* Navigation */,
+				1A545BDC1E36ABD600F15E31 /* Extensions */,
+				1AE581661E36F90A0050FA6D /* Tab Bar */,
+				1AE581641E36F7310050FA6D /* Settings */,
+				1AE581631E36F7220050FA6D /* Files View */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1AA497081E36A2FF000A70ED /* UI Objects */ = {
+			isa = PBXGroup;
+			children = (
+				1AE5816B1E3701A20050FA6D /* Files Table View */,
+			);
+			name = "UI Objects";
+			sourceTree = "<group>";
+		};
+		1AE5814B1E36DB020050FA6D /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				1A545C631E36D9C600F15E31 /* UserPrefsModel.swift */,
+				1A545C651E36DA3500F15E31 /* AppPrefsModel.swift */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		1AE5814C1E36E1A90050FA6D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1AE581521E36E57B0050FA6D /* Strings */,
+				1AE581551E36E5CC0050FA6D /* Misc */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		1AE581521E36E57B0050FA6D /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				1AE581531E36E5A10050FA6D /* String+Localizable.swift */,
+				1AE581501E36E2850050FA6D /* DefaultStringConstants.swift */,
+				1AE5814D1E36E23A0050FA6D /* Localizable.strings */,
+			);
+			name = Strings;
+			sourceTree = "<group>";
+		};
+		1AE581551E36E5CC0050FA6D /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				1AE5816C1E3703100050FA6D /* AppDefaults.swift */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		1AE581611E36F64F0050FA6D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1AE5815D1E36F6490050FA6D /* FBFileTableViewCell.swift */,
+				1AE5815E1E36F6490050FA6D /* FBFileTableViewCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		1AE581621E36F66D0050FA6D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1AA496EE1E369C1D000A70ED /* Main.storyboard */,
+				1AA496F31E369C1D000A70ED /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		1AE581631E36F7220050FA6D /* Files View */ = {
+			isa = PBXGroup;
+			children = (
+				1AE5815A1E36F06C0050FA6D /* FilesTableViewController.swift */,
+			);
+			name = "Files View";
+			sourceTree = "<group>";
+		};
+		1AE581641E36F7310050FA6D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1AA496EC1E369C1D000A70ED /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		1AE581651E36F8EE0050FA6D /* Data Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1A545C3C1E36D43200F15E31 /* FBDataManager.swift */,
+				1AE581731E3718EB0050FA6D /* LoginManager.swift */,
+			);
+			name = "Data Managers";
+			sourceTree = "<group>";
+		};
+		1AE581661E36F90A0050FA6D /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				1AA497001E369D31000A70ED /* MainTabBarControllerViewController.swift */,
+			);
+			name = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		1AE581671E36F92A0050FA6D /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				1AA497021E36A006000A70ED /* FilesViewNavController.swift */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+		1AE581681E36F9FB0050FA6D /* AppData */ = {
+			isa = PBXGroup;
+			children = (
+				1AE581691E36FA0F0050FA6D /* AppData.swift */,
+			);
+			name = AppData;
+			sourceTree = "<group>";
+		};
+		1AE5816B1E3701A20050FA6D /* Files Table View */ = {
+			isa = PBXGroup;
+			children = (
+				1AE581611E36F64F0050FA6D /* Cells */,
+			);
+			name = "Files Table View";
+			sourceTree = "<group>";
+		};
+		1AE5816E1E370D120050FA6D /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				1AE5816F1E370D220050FA6D /* Console.swift */,
+			);
+			name = Debug;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +340,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AA496F51E369C1D000A70ED /* LaunchScreen.storyboard in Resources */,
+				1AE581601E36F6490050FA6D /* FBFileTableViewCell.xib in Resources */,
+				1AE5814E1E36E23A0050FA6D /* Localizable.strings in Resources */,
 				1AA496F21E369C1D000A70ED /* Assets.xcassets in Resources */,
 				1AA496F01E369C1D000A70ED /* Main.storyboard in Resources */,
 			);
@@ -140,9 +354,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AA496ED1E369C1D000A70ED /* SecondViewController.swift in Sources */,
+				1AA496ED1E369C1D000A70ED /* SettingsViewController.swift in Sources */,
 				1AA496E91E369C1D000A70ED /* AppDelegate.swift in Sources */,
-				1AA496EB1E369C1D000A70ED /* FirstViewController.swift in Sources */,
+				1AE581761E372C690050FA6D /* Credentials.swift in Sources */,
+				1A545BD81E36A7E800F15E31 /* User.swift in Sources */,
+				1A545BE41E36B2B000F15E31 /* FBItem.swift in Sources */,
+				1AE581781E372EDA0050FA6D /* ReadMe.md in Sources */,
+				1AE5815C1E36F2C00050FA6D /* DataModel.swift in Sources */,
+				1AE581511E36E2850050FA6D /* DefaultStringConstants.swift in Sources */,
+				1A545C661E36DA3500F15E31 /* AppPrefsModel.swift in Sources */,
+				1AE5816D1E3703100050FA6D /* AppDefaults.swift in Sources */,
+				1A545C3B1E36D36700F15E31 /* File.swift in Sources */,
+				1A545C3D1E36D43200F15E31 /* FBDataManager.swift in Sources */,
+				1AA497031E36A006000A70ED /* FilesViewNavController.swift in Sources */,
+				1AA497011E369D31000A70ED /* MainTabBarControllerViewController.swift in Sources */,
+				1AE5815B1E36F06C0050FA6D /* FilesTableViewController.swift in Sources */,
+				1AE581701E370D220050FA6D /* Console.swift in Sources */,
+				1AE5816A1E36FA0F0050FA6D /* AppData.swift in Sources */,
+				1A545C641E36D9C600F15E31 /* UserPrefsModel.swift in Sources */,
+				1AE581741E3718EB0050FA6D /* LoginManager.swift in Sources */,
+				1AE581541E36E5A10050FA6D /* String+Localizable.swift in Sources */,
+				1AE5815F1E36F6490050FA6D /* FBFileTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +538,7 @@
 				1AA496FB1E369C1D000A70ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

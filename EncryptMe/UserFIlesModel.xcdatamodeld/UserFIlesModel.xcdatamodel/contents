@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16B2327e" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Accounts" representedClassName="Accounts" parentEntity="User" syncable="YES" codeGenerationType="class">
+        <attribute name="dropboxEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hasDropbox" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hasOneDrive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="oneDriveEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DataManager" representedClassName="DataManager" syncable="YES" codeGenerationType="class">
+        <attribute name="defaultDirectory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rootDirectory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="users" optional="YES" syncable="YES"/>
+    </entity>
+    <entity name="Directory" representedClassName="Directory" parentEntity="FBItem" syncable="YES" codeGenerationType="class">
+        <attribute name="canBeModified" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="childDirectories" optional="YES" syncable="YES"/>
+        <attribute name="fileCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="filesList" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="hasChildDirectory" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hasParentDirectory" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isModified" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="FBItem" representedClassName="FBItem" syncable="YES" codeGenerationType="class">
+        <attribute name="canBeEncrypted" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="canBeModified" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="canBeRemoved" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dateModified" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isEncrypted" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isModified" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="passwordVerified" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sizeInBytes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="File" representedClassName="File" parentEntity="FBItem" syncable="YES" codeGenerationType="class">
+        <attribute name="decryptedData" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="encryptedData" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rawBinary" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="shouldOpenInBrowser" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="File" positionX="9" positionY="404" width="128" height="118"/>
+        <element name="Directory" positionX="-254" positionY="458" width="128" height="163"/>
+        <element name="FBItem" positionX="-126" positionY="108" width="128" height="208"/>
+        <element name="User" positionX="-497" positionY="207" width="128" height="75"/>
+        <element name="Accounts" positionX="-450" positionY="387" width="128" height="135"/>
+        <element name="DataManager" positionX="-198" positionY="387" width="128" height="88"/>
+    </elements>
+</model>
