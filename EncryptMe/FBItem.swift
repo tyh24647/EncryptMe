@@ -56,7 +56,8 @@ struct FBItem {
         let prefsPath = docDirectoryPath.appending("/user-profile.plist")
         var hasExtension = true
         
-        if 
+        // TODO add checking for extensions
+
         
         return hasExtension
     }

@@ -22,7 +22,6 @@ class DataModel {
         user = User.init()
         user.username = "default"
         user.password = "test"
-        user.isAdmin = true
     }
     
 }

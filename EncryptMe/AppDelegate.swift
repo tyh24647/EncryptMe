@@ -11,8 +11,9 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var user: User!
     var window: UIWindow?
+    var user: User!
+    var credentials: Credentials!
     var dataManager: FBDataManager!
     var appData: AppData!
     var loginManager: LoginManager!
@@ -21,9 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // init data manager
         self.dataManager = FBDataManager()
-        
-        // init login manager
-        self.lo
         
         // pass data manager to the app data class to allow for retrieving the correct defaults
         self.appData =  AppData.init(withDataManager: dataManager)
@@ -46,6 +44,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         #endif
+        
+        // generate credentials for the user
+        self.credentials = Credentials(withUsername: self.user.username, password: self.user.password)
+        
+        // init login manager
+        self.loginManager = LoginManager(withCredentials: self.credentials)
+        loginManager.login()
         
         return true
     }

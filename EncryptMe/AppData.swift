@@ -57,5 +57,8 @@ public class AppData {
     
     static func hasSavedAppData() -> Bool {
         
+        // TODO
+        
+        return false
     }
 }

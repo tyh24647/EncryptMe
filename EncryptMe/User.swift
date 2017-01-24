@@ -61,14 +61,26 @@ class User {
     
     private var hasSavedPrefsData: Bool! {
         get {
+            return self.hasSavedPrefsData
+        } set {
+            // TODO
+        }
+    }
+    
+    var hasFullPermissions: Bool! {
+        get {
+            var hasFull = false
             
+            return hasFull
+        } set {
+            // TODO
         }
     }
     
     // init vars
     var username: String!
     var password: String!
-    var hasFullPermissions: Bool!
+    
     var hasReadPermissions: Bool!
     var hasWritePermissions: Bool!
     var hasDefaultPermissions: Bool!
@@ -117,7 +129,7 @@ class User {
     }
     
     func isDebugging() -> Bool {
-        
+        return self.isDebug
     }
     
     fileprivate func createUser(withUsername username: String!, password: String!, isAdmin: Bool) -> Void {
@@ -151,11 +163,7 @@ class User {
         return isLoggedIn
     }
     
-    fileprivate func hasFullPermissions() -> Bool {
-        var hasFull = false
-        
-        return hasFull
-    }
+    
 }
 
 

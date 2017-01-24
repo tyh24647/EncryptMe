@@ -9,9 +9,10 @@
 import Foundation
 
 class LoginManager {
-    var loggedIn: Bool!
+    var credentials: Credentials!
     var username: String!
     var password: String!
+    var loggedIn: Bool!
     
     init() {
         #if DEBUG
@@ -23,6 +24,17 @@ class LoginManager {
         #endif
     }
     
+    init(withCredentials credentials: Credentials!) {
+        self.credentials = credentials ?? Credentials(withUsername: username, password: password)
+        self.username = self.credentials.username
+        self.password = self.credentials.password
+        self.loggedIn = false
+    }
+    
+    func login() {
+        
+    }
+    
     fileprivate func makeLoginAttempt() -> Bool! {
         var success = false
         
@@ -31,5 +43,6 @@ class LoginManager {
         return success
     }
 }
+
 
 

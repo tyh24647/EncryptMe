@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Credentials: User {
+class Credentials {
     private let kDefaultUsername = String.UserDefaults.DefaultUsername.rawValue
     private let kDefaultPassword = String.UserDefaults.DefaultPassword.rawValue
     
     var encryptionKey: String!
     
-    override var username: String! {
+    var username: String! {
         get {
             return self.username ?? kDefaultUsername
         } set {
@@ -22,7 +22,7 @@ class Credentials: User {
         }
     }
     
-    override var password: String! {
+    var password: String! {
         get {
             return self.password ?? kDefaultPassword
         } set {
@@ -30,19 +30,28 @@ class Credentials: User {
         }
     }
     
-    override init() {
-        initDefaults()
+    init() {
+        initDefaultCredentials()
     }
     
+    init(withUsername username: String!, password: String!) {
+        initCredentials(withUsername: username, password: password)
+    }
     
-    fileprivate func initDefaults() -> Void {
+    fileprivate func initCredentials(withUsername username: String!, password: String!) -> Void {
+        self.username = username ?? kDefaultUsername
+        self.password = password ?? kDefaultPassword
+        self.encryptionKey = generateEncryptionKey()
+    }
+    
+    fileprivate func initDefaultCredentials() -> Void {
         self.username = kDefaultUsername
         self.password = kDefaultPassword
         self.encryptionKey = generateEncryptionKey()
     }
     
     fileprivate func generateEncryptionKey() -> String {
-        var encKey: String
+        var encKey: String!
         
         // TODO encryption
         
