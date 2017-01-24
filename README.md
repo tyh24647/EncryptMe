@@ -5,3 +5,5 @@ cloud syncing services including Google Docs, Dropbox, OneDrive, iCloud, Mega.nz
 
 You can also send and receive files via FTP, bluetooth, USB (through iTunes), and AirDrop (through the 'open in' context menu 
 when receiving files)
+
+Copyright © Tyler Hostager, 2017.
