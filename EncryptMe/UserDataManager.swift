@@ -41,7 +41,7 @@ open class UserDataManager {
                 
             })
         } catch let e as NSError {
-            Console.
+            Console.Err(errMsg: e.localizedDescription)
             throw NSException(name: NSExceptionName(rawValue: "InvalidFileNameException"), reason: "Unable to create file with the specified name", userInfo: nil) as! Error
         }
     }
@@ -77,7 +77,7 @@ open class UserDataManager {
             
                 success = true
             } else {
-                if self.appData
+                //if self.appData
             }
         } else {
             user = User(withUsername: String.UserDefaults.AdminUsername, password: , isAdmin: <#T##Bool#>)

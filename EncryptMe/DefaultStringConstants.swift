@@ -13,8 +13,8 @@ extension String {
     // Default strings for user data
     enum UserDefaults: String {
         #if DEBUG
-        case DebugUsername = "debug"
-        case DebugPassword = "debugMe+"
+            case DebugUsername = "debug"
+            case DebugPassword = "debugMe+"
         #endif
         case AdminUsername = "admin"
         case AdminPassword = "1_Peter_4_10"
@@ -29,7 +29,7 @@ extension String {
         case InvalidUsername = "Invalid username"
         case InvalidPassword = "Invalid password"
         #if DEBUG
-        case Debug = "Validation overridden - debug mode enabled"
+            case Debug = "Validation overridden - debug mode enabled"
         #endif
         case Default = "No User Account Created"
     
@@ -57,6 +57,12 @@ extension String {
             case wma = ".wma"
             case aac = ".aac"
             case mp3 = ".mp3"
+        }
+        
+        enum Photo: String {
+            case gif = ".gif"
+            case png = ".png"
+            case jpeg = ".jpg"
         }
         
         init() {

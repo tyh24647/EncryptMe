@@ -29,9 +29,9 @@ struct FBItem {
     }
     
     init() {
-        self.type = self.hasFileExtension(path) ? fileTypeForDirectoryElement(path) : kUnknownFileType
         self.docDirectoryPath = kDefaultFilePath
         self.path = kDefaultFilePath
+        self.type = self.hasFileExtension(path) ? fileTypeForDirectoryElement(path) : kUnknownFileType
         self.name = kUnknownName
         #if DEBUG
             
