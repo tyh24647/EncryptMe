@@ -20,6 +20,7 @@ extension String {
         case AdminPassword = "1_Peter_4_10"
         case DefaultUsername = "default"
         case DefaultPassword = "test"
+        case UserProfilePlistName = "user-profile"
     }
     
     enum UserValidationMsgs: String {
@@ -40,6 +41,7 @@ extension String {
     
     enum FileTypes: String {
         case Unknown = "Unknown"
+        case PropertyList = ".plist"
         
         enum Video: String {
             case mp4 = ".mp4"
@@ -87,7 +89,12 @@ extension String {
         case Default = "/"
         case UserFiles = "/Users/Files/Default/"
         
-        // TODO
+        
+        // TODO Test Test Test Test Test Test
+        case LogFilePath = "/Logs/"
+        // TODO Test Test Test Test Test Test
+        
+        
     }
     
     enum Dispatch: String {
@@ -98,5 +105,13 @@ extension String {
             self = .Default
         }
     }
+    
+    enum PlistDataTitles: String {
+        case Username = "Username"
+        case Password = "Password"
+    }
+    
+    
+    
 }
 

@@ -9,28 +9,18 @@
 import Foundation
 
 protocol Log {
-    static func Log(debugMsg msg: String!)
-    static func Log(debugMsg msg: String!, withTitle title: String!)
+    static func Debug(debugMsg msg: String!)
+    static func Debug(debugMsg msg: String!, withTitle title: String!)
     static func Err(errMsg msg: String!)
     static func Err(errMsg msg: String!, withErrMsg errMsg: String!)
 }
 
 extension Console: Log {
-    
-    convenience init() {
-        do {
-            generateLogFileFolder()
-            try FileManager.default.createDirectory(atPath: self.logFilePath, withIntermediateDirectories: false, attributes: nil)
-        } catch let error as NSError {
-            print(error.localizedDescription);
-        }
-    }
-    
-    open class func Log(debugMsg msg: String!) -> Void {
+    open class func Debug(debugMsg msg: String!) -> Void {
         stdLog(msg)
     }
     
-    open class func Log(debugMsg msg: String!, withTitle title: String!) -> Void {
+    open class func Debug(debugMsg msg: String!, withTitle title: String!) -> Void {
         stdLog(msg, title)
     }
     
@@ -52,18 +42,18 @@ extension Console: Log {
 }
 
 public class Console {
+    let logFilePath = String.Paths.LogFilePath.rawValue
     private var documents: [String]!
     private var documentsDirectory: AnyObject
-    var logFilePath: String!
     
-    init(withLogFilePath logFilePath: String!) {
-        // do nothing for now
+    init() {
+        self.documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        self.documentsDirectory = documents[0] as AnyObject
     }
     
     fileprivate func generateLogFileFolder() -> Void {
         self.documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         self.documentsDirectory = documents[0] as AnyObject
-        self.logFilePath = documentsDirectory.appendingPathComponent("Logs")
     }
     
     fileprivate static func stdLog(_ msg: String!) -> Void {

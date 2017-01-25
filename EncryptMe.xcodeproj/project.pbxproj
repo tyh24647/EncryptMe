@@ -13,6 +13,7 @@
 		1A545C3D1E36D43200F15E31 /* FBDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A545C3C1E36D43200F15E31 /* FBDataManager.swift */; };
 		1A545C641E36D9C600F15E31 /* UserPrefsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A545C631E36D9C600F15E31 /* UserPrefsModel.swift */; };
 		1A545C661E36DA3500F15E31 /* AppPrefsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A545C651E36DA3500F15E31 /* AppPrefsModel.swift */; };
+		1A75C7071E393716000F92A1 /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A75C7061E393716000F92A1 /* PlistManager.swift */; };
 		1AA496E91E369C1D000A70ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA496E81E369C1D000A70ED /* AppDelegate.swift */; };
 		1AA496ED1E369C1D000A70ED /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA496EC1E369C1D000A70ED /* SettingsViewController.swift */; };
 		1AA496F01E369C1D000A70ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AA496EE1E369C1D000A70ED /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		1A545C611E36D95800F15E31 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		1A545C631E36D9C600F15E31 /* UserPrefsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPrefsModel.swift; sourceTree = "<group>"; };
 		1A545C651E36DA3500F15E31 /* AppPrefsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPrefsModel.swift; sourceTree = "<group>"; };
+		1A75C7061E393716000F92A1 /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
 		1AA496E51E369C1D000A70ED /* EncryptMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA496E81E369C1D000A70ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AA496EC1E369C1D000A70ED /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -97,13 +99,6 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		1A545BDC1E36ABD600F15E31 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
 		1AA496DC1E369C1D000A70ED = {
 			isa = PBXGroup;
 			children = (
@@ -152,11 +147,10 @@
 		1AA496FD1E369CDE000A70ED /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1AE581671E36F92A0050FA6D /* Navigation */,
-				1A545BDC1E36ABD600F15E31 /* Extensions */,
-				1AE581661E36F90A0050FA6D /* Tab Bar */,
-				1AE581641E36F7310050FA6D /* Settings */,
-				1AE581631E36F7220050FA6D /* Files View */,
+				1AA497021E36A006000A70ED /* FilesViewNavController.swift */,
+				1AA497001E369D31000A70ED /* MainTabBarControllerViewController.swift */,
+				1AA496EC1E369C1D000A70ED /* SettingsViewController.swift */,
+				1AE5815A1E36F06C0050FA6D /* FilesTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -164,7 +158,7 @@
 		1AA497081E36A2FF000A70ED /* UI Objects */ = {
 			isa = PBXGroup;
 			children = (
-				1AE5816B1E3701A20050FA6D /* Files Table View */,
+				1AE581611E36F64F0050FA6D /* UITableViewCells */,
 			);
 			name = "UI Objects";
 			sourceTree = "<group>";
@@ -205,13 +199,13 @@
 			name = Misc;
 			sourceTree = "<group>";
 		};
-		1AE581611E36F64F0050FA6D /* Cells */ = {
+		1AE581611E36F64F0050FA6D /* UITableViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				1AE5815D1E36F6490050FA6D /* FBFileTableViewCell.swift */,
 				1AE5815E1E36F6490050FA6D /* FBFileTableViewCell.xib */,
 			);
-			name = Cells;
+			name = UITableViewCells;
 			sourceTree = "<group>";
 		};
 		1AE581621E36F66D0050FA6D /* Storyboards */ = {
@@ -223,46 +217,15 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
-		1AE581631E36F7220050FA6D /* Files View */ = {
-			isa = PBXGroup;
-			children = (
-				1AE5815A1E36F06C0050FA6D /* FilesTableViewController.swift */,
-			);
-			name = "Files View";
-			sourceTree = "<group>";
-		};
-		1AE581641E36F7310050FA6D /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				1AA496EC1E369C1D000A70ED /* SettingsViewController.swift */,
-			);
-			name = Settings;
-			sourceTree = "<group>";
-		};
 		1AE581651E36F8EE0050FA6D /* Data Managers */ = {
 			isa = PBXGroup;
 			children = (
+				1A75C7061E393716000F92A1 /* PlistManager.swift */,
 				1A545C3C1E36D43200F15E31 /* FBDataManager.swift */,
 				1AE581731E3718EB0050FA6D /* LoginManager.swift */,
 				1AE5817D1E375C810050FA6D /* UserDataManager.swift */,
 			);
 			name = "Data Managers";
-			sourceTree = "<group>";
-		};
-		1AE581661E36F90A0050FA6D /* Tab Bar */ = {
-			isa = PBXGroup;
-			children = (
-				1AA497001E369D31000A70ED /* MainTabBarControllerViewController.swift */,
-			);
-			name = "Tab Bar";
-			sourceTree = "<group>";
-		};
-		1AE581671E36F92A0050FA6D /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				1AA497021E36A006000A70ED /* FilesViewNavController.swift */,
-			);
-			name = Navigation;
 			sourceTree = "<group>";
 		};
 		1AE581681E36F9FB0050FA6D /* AppData */ = {
@@ -271,14 +234,6 @@
 				1AE581691E36FA0F0050FA6D /* AppData.swift */,
 			);
 			name = AppData;
-			sourceTree = "<group>";
-		};
-		1AE5816B1E3701A20050FA6D /* Files Table View */ = {
-			isa = PBXGroup;
-			children = (
-				1AE581611E36F64F0050FA6D /* Cells */,
-			);
-			name = "Files Table View";
 			sourceTree = "<group>";
 		};
 		1AE5816E1E370D120050FA6D /* Debug */ = {
@@ -394,6 +349,7 @@
 				1AE5816D1E3703100050FA6D /* AppDefaults.swift in Sources */,
 				1A545C3B1E36D36700F15E31 /* File.swift in Sources */,
 				1AE581821E375ED50050FA6D /* DispatchQueues.swift in Sources */,
+				1A75C7071E393716000F92A1 /* PlistManager.swift in Sources */,
 				1AE5817C1E374E9A0050FA6D /* AsyncTask.swift in Sources */,
 				1A545C3D1E36D43200F15E31 /* FBDataManager.swift in Sources */,
 				1AA497031E36A006000A70ED /* FilesViewNavController.swift in Sources */,
