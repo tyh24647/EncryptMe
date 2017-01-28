@@ -15,6 +15,7 @@ protocol Log {
     static func Err(errMsg msg: String!, withErrMsg errMsg: String!)
 }
 
+// MARK: - Log
 extension Console: Log {
     open class func Debug(debugMsg msg: String!) -> Void {
         stdLog(msg)
@@ -33,12 +34,8 @@ extension Console: Log {
     }
     
     private func writeToLogFile(_ msg: String!) -> Void {
-        
         // TODO write logs to log file
-        
     }
-    
-    
 }
 
 public class Console {

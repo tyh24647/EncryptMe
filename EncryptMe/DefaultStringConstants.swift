@@ -88,13 +88,7 @@ extension String {
     enum Paths: String {
         case Default = "/"
         case UserFiles = "/Users/Files/Default/"
-        
-        
-        // TODO Test Test Test Test Test Test
         case LogFilePath = "/Logs/"
-        // TODO Test Test Test Test Test Test
-        
-        
     }
     
     enum Dispatch: String {
@@ -110,8 +104,5 @@ extension String {
         case Username = "Username"
         case Password = "Password"
     }
-    
-    
-    
 }
 

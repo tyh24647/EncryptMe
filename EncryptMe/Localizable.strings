@@ -6,8 +6,8 @@
   Copyright © 2017 Tyler Hostager. All rights reserved.
 */
 
-"Invalid User"="Invalid User"
-"No User Account Created"="No User Account Created"
-"Validation overridden - debug mode enabled"="Validation overridden - debug mode enabled"
-"No User Account Created"="No User Account Created"
-
+"Invalid User"="Invalid User";
+"No User Account Created"="No User Account Created";
+"Validation overridden - debug mode enabled"="Validation overridden - debug mode enabled";
+"No User Account Created"="No User Account Created";
+"User property list file generated successfully"="User property list file generated successfully";

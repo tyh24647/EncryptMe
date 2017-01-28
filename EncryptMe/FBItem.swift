@@ -28,30 +28,41 @@ struct FBItem {
         }
     }
     
+    /// Default constructor
     init() {
         self.docDirectoryPath = kDefaultFilePath
         self.path = kDefaultFilePath
         self.type = self.hasFileExtension(path) ? fileTypeForDirectoryElement(path) : kUnknownFileType
         self.name = kUnknownName
-        #if DEBUG
-            
-        #else
-        #endif
     }
     
+    /// Constructs an FBItem object with the specified type
+    ///
+    /// - Parameter type: The type of the object in which to be constructed
     init(withType type: String!) {
-        self.type = type
-        
         self.path = kDefaultFilePath
+        self.type = type ?? (self.hasFileExtension(path) ? fileTypeForDirectoryElement(path) : kUnknownFileType)
         self.name = kUnknownName
-        
-        
     }
     
+    
+    /// Initializes the specific file item that has the specified type, path, name, and 
+    /// whether or not the file item is a directory
+    ///
+    /// - Parameters:
+    ///   - type: The type of file to create
+    ///   - atPath: The desired path of the new item
+    ///   - name: The name of the item
+    ///   - isDirectory: Whether or not it should be a directory
     fileprivate func initFileItem(withType type: String!, atPath: String!, name: String!, isDirectory: Bool) -> Void {
         
     }
     
+    
+    /// Determines whether or not the FBItem has a file extension associated with it
+    ///
+    /// - Parameter path: The path to check
+    /// - Returns: True if it has an extension, else false
     fileprivate func hasFileExtension(_ path: String) -> Bool {
         let prefsPath = docDirectoryPath.appending("/user-profile.plist")
         var hasExtension = true
@@ -62,13 +73,15 @@ struct FBItem {
         return hasExtension
     }
     
+    /// Retrieves the file type of the file at the specified path
+    ///
+    /// - Parameter path: The path of the file to find
+    /// - Returns: The type of file at the requested path
     fileprivate func fileTypeForDirectoryElement(_ path: String) -> String! {
         var fileType: String!
         
         return fileType
     }
-    
-    
 }
 
 

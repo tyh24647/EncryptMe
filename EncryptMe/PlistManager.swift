@@ -8,15 +8,24 @@
 
 import Foundation
 
-let plistFileName: String = String.UserDefaults.UserProfilePlistName.rawValue
+let plistFileName = String.UserDefaults.UserProfilePlistName.rawValue
 
 struct Plist {
+    
+    // MARK: Enums
+    
+    /// Enumeration of property list errors
+    ///
+    /// - FileNotWritten: The file could not be written
+    /// - FileDoesNotExist: The file does not exist
     enum PlistError: Error {
         case FileNotWritten
         case FileDoesNotExist
     }
     
-    let name: String
+    // MARK: Variables
+    
+    var name: String
     
     var sourcePath: String? {
         guard let path = Bundle.main.path(forResource: name, ofType: "plist") else { return .none }
@@ -29,9 +38,11 @@ struct Plist {
         return (dir as NSString).appendingPathComponent("\(name).plist")
     }
     
-    init? (name: String) {
-        guard let source = sourcePath else { return nil }
-        guard let destination = destPath else { return nil }
+    init?(name: String) {
+        self.init(name: name)
+        guard let source = self.sourcePath else { return nil }
+        guard let destination = self.destPath else { return nil }
+        
         let fileManager = FileManager.default
         guard fileManager.fileExists(atPath: source) else { return nil }
         self.name = name
@@ -46,7 +57,10 @@ struct Plist {
         }
     }
     
-    func getValuesInPlistFile() -> NSDictionary?{
+    /// Retrieves the data values from the property list
+    ///
+    /// - Returns: The data
+    func getValuesInPlistFile() -> NSDictionary? {
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: destPath!) {
             guard let dict = NSDictionary(contentsOfFile: destPath!) else { return .none }
@@ -56,6 +70,9 @@ struct Plist {
         }
     }
     
+    /// Retrieves the mutable property list
+    ///
+    /// - Returns: The property list
     func getMutablePlistFile() -> NSMutableDictionary? {
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: destPath!) {
@@ -66,6 +83,10 @@ struct Plist {
         }
     }
     
+    /// Adds the specified dictionary values to the property list
+    ///
+    /// - Parameter dictionary: The dictionary values to add
+    /// - Throws: File not written or file does not exist
     func addValuesToPlistFile(dictionary: NSDictionary) throws {
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: destPath!) {
@@ -83,12 +104,18 @@ class PlistManager {
     static let sharedInstance = PlistManager()
     private init() {} //This prevents others from using the default '()' initializer for this class.
     
+    /// Initializes the plist manager
     func startPlistManager() {
         if let _ = Plist(name: plistFileName) {
             Console.Debug(debugMsg: "[PlistManager] PlistManager started")
         }
     }
     
+    /// Adds a new item to the property list
+    ///
+    /// - Parameters:
+    ///   - key: The key for the value
+    ///   - value: The value for the key
     func addNewItemWithKey(key: String, value: AnyObject) {
         Console.Debug(debugMsg: "[PlistManager] Starting to add item for key '\(key) with value '\(value)' . . .")
         if !keyAlreadyExists(key: key) {
@@ -112,6 +139,9 @@ class PlistManager {
         }
     }
     
+    /// Removes the item with the specified key
+    ///
+    /// - Parameter key: The key of the item in which to remove
     func removeItemForKey(key: String) {
         Console.Debug(debugMsg: "[PlistManager] Starting to remove item for key '\(key) . . .")
         if keyAlreadyExists(key: key) {
@@ -136,6 +166,7 @@ class PlistManager {
         
     }
     
+    /// Remove all dictionary items from the property list
     func removeAllItemsFromPlist() {
         if let plist = Plist(name: plistFileName) {
             let dict = plist.getMutablePlistFile()!
@@ -160,6 +191,11 @@ class PlistManager {
         }
     }
     
+    /// Saves the given value to a dictionary value with the specified key
+    ///
+    /// - Parameters:
+    ///   - value: The value to assign
+    ///   - forKey: The key to save the value for
     func saveValue(value: AnyObject, forKey: String) {
         if let plist = Plist(name: plistFileName) {
             let dict = plist.getMutablePlistFile()!
@@ -185,6 +221,10 @@ class PlistManager {
         }
     }
     
+    /// Retrieves the value from the property list for the specified key
+    ///
+    /// - Parameter key: The key for the value to return
+    /// - Returns: The value of the object with the given key
     func getValueForKey(key: String) -> AnyObject? {
         var value:AnyObject?
         
@@ -221,6 +261,10 @@ class PlistManager {
         }
     }
     
+    /// Returns whether or not the key already exists in the property list
+    ///
+    /// - Parameter key: The key to search for
+    /// - Returns: True if it exists, else false
     func keyAlreadyExists(key:String) -> Bool {
         var keyExists = false
         
@@ -251,9 +295,6 @@ class PlistManager {
         
         return keyExists
     }
-    
-    
-    
 }
 
 

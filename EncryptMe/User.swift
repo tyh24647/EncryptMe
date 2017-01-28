@@ -10,39 +10,30 @@ import Foundation
 
 class User {
     
-    // init constants
-#if DEBUG
+    // MARK: - Init constants
+    #if DEBUG
     static let debugUsername = String.UserDefaults.DebugUsername.rawValue
     static let debugPassword = String.UserDefaults.DebugPassword.rawValue
-#else
+    #else
     static let adminUsername = String.UserDefaults.AdminUsername.rawValue
     static let adminPassword = String.UserDefaults.AdminPassword.rawValue
     static let defaultUsername = String.UserDefaults.AdminUsername.rawValue
     static let defaultPassword = String.UserDefaults.AdminPassword.rawValue
-#endif
+    #endif
     
-    enum UserType {
-        case Admin
-        #if DEBUG
-        case Debug
-        #endif
-        case Default
-        
-        init() {
-            self = .Default
-        }
-    }
+    // MARK: - Init vars
+    var username: String!
+    var password: String!
+    var hasReadPermissions: Bool!
+    var hasWritePermissions: Bool!
+    var hasDefaultPermissions: Bool!
+    var credentials: Credentials!
     
-    // init private vars
-    private var userType: UserType! {
-        get {
-            return self.userType ?? .Default
-        } set {
-            self.userType = newValue ?? .Default
-        }
-    }
+    // MARK - Init private vars
+    private var isAdmin: Bool
     
     #if DEBUG
+    
     private var isDebug: Bool! {
         get {
             switch self.userType as UserType {
@@ -57,69 +48,101 @@ class User {
     }
     #endif
     
-    private var hasSavedPrefsData: Bool! {
+    var userType: UserType! {
+        get {
+            return self.userType ?? .Default
+        } set {
+            self.userType = newValue ?? .Default
+        }
+    }
+    
+    var hasSavedPrefsData: Bool! {
         get {
             return self.hasSavedPrefsData
         } set {
-            // TODO
+            self.hasSavedPrefsData = newValue
         }
     }
     
     var hasFullPermissions: Bool! {
         get {
-            var hasFull = false
-            
-            if isAdmin {
-                hasFull = true
-            }
-            
-            return hasFull
+            return isAdmin || isDebug
         } set {
-            // TODO
+            self.hasFullPermissions = isAdmin || isDebug ? true : newValue
         }
     }
     
-    // init vars
-    var username: String!
-    var password: String!
+    // MARK: - Enums
     
-    private var isAdmin: Bool
     
-    var hasReadPermissions: Bool!
-    var hasWritePermissions: Bool!
-    var hasDefaultPermissions: Bool!
+    /// Enumeration of the different types of possible users
+    ///
+    /// - Admin: An administrative role
+    /// - Debug: A debugging role (an admin)
+    /// - Default: A standard user without admin privelages
+    enum UserType {
+        case Admin
+        #if DEBUG
+        case Debug
+        #endif
+        case Default
+        
+        init() {
+            self = .Default
+        }
+    }
     
-    var credentials: Credentials!
+    // MARK: - Constructors
     
+    /// Default constructor
     init() {
-        initDefaultUser()
+        self.username = String.UserDefaults.DefaultUsername.rawValue
+        self.password = String.UserDefaults.DefaultPassword.rawValue
+        self.credentials = Credentials.init(withUsername: username, password: password)
+        self.isAdmin = false
+        self.userType = .Default
         validateUserAccount()
     }
     
-    init(withUsername username: String, password: String) {
+    /// Constructs a user object with the specified username and password.
+    ///
+    /// - Parameters:
+    ///   - username: The username to assign
+    ///   - password: The password to assign
+    convenience init(withUsername username: String, password: String) {
+        self.init()
         createUser(withUsername: username, password: password, isAdmin: true)
         validateUserAccount()
     }
     
-    init(withUsername username: String, password: String, isAdmin: Bool) {
+    /// Constructs a user object with the specified username, 
+    /// password, and admin permissions.
+    ///
+    /// - Parameters:
+    ///   - username:   The username to assign
+    ///   - password:   The password to assign
+    ///   - isAdmin:    Whether or not the user has administrative privelages
+    convenience init(withUsername username: String, password: String, isAdmin: Bool) {
+        self.init()
         createUser(withUsername: username, password: password, isAdmin: isAdmin)
         validateUserAccount()
     }
     
 #if DEBUG
+    /// Constructs a user object with the specified parameters that pertain
+    /// only to debug mode, if enabled.
+    ///
+    /// - Parameter enabled: Whether or not debug mode is enabled
     init(debugMode enabled: Bool) {
-        if enabled {
-            self.username = String.UserDefaults.AdminUsername.rawValue
-            self.password = String.UserDefaults.AdminPassword.rawValue
-            self.credentials = Credentials.init(withUsername: username, password: password)
-            self.isAdmin = true
-            self.userType = .Debug
-        } else {
-            initDefaultUser()
-        }
+        self.username = String.UserDefaults.AdminUsername.rawValue
+        self.password = String.UserDefaults.AdminPassword.rawValue
+        self.credentials = Credentials.init(withUsername: username, password: password)
+        self.isAdmin = true
+        self.userType = .Debug
     }
 #endif
     
+    /// Creates a default user object, when applicable
     func initDefaultUser() -> Void {
         self.username = String.UserDefaults.DefaultUsername.rawValue
         self.password = String.UserDefaults.DefaultPassword.rawValue
@@ -128,6 +151,9 @@ class User {
         self.userType = .Default
     }
     
+    /// Determines if the user is an administrator or not
+    ///
+    /// - Returns: True if admin, else false
     func isAdminAccount() -> Bool {
         validateUserAccount()
         
@@ -136,10 +162,19 @@ class User {
         return true
     }
     
+    /// Determines whether or not the program is currently debugging
+    ///
+    /// - Returns: True if currently debugging, else false
     func isDebugging() -> Bool {
         return self.isDebug
     }
     
+    /// Creates a new user object with the specified username, password, and admin permissions
+    ///
+    /// - Parameters:
+    ///   - username: The username of the user to be created
+    ///   - password: The password of the user to be created
+    ///   - isAdmin: Whether or not the new user should be an administrator
     fileprivate func createUser(withUsername username: String!, password: String!, isAdmin: Bool) -> Void {
         self.isAdmin = isAdmin
         #if DEBUG
@@ -162,10 +197,14 @@ class User {
         self.credentials = Credentials.init(withUsername: self.username, password: self.password)
     }
     
+    /// Ensures that the user account is valid, and fixes it if not
     fileprivate func validateUserAccount() -> Void {
         
     }
     
+    /// Checks to see if the user is currently logged in
+    ///
+    /// - Returns: Whether or not the user is logged in
     fileprivate func isLoggedIn() -> Bool {
         var isLoggedIn = false
         
@@ -173,8 +212,6 @@ class User {
         
         return isLoggedIn
     }
-    
-    
 }
 
 
