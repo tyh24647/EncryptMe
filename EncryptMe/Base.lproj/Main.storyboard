@@ -26,28 +26,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="fbCell" editingAccessoryType="checkmark" textLabel="gd6-12-UMQ" detailTextLabel="GWJ-Eo-jWY" style="IBUITableViewCellStyleValue1" id="dZo-Sd-gZM" customClass="FBFileTableViewCell" customModule="EncryptMe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="fbCell" editingAccessoryType="checkmark" id="dZo-Sd-gZM" customClass="FBFileTableViewCell" customModule="EncryptMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dZo-Sd-gZM" id="1hs-GY-bCy">
-                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gd6-12-UMQ">
-                                                    <rect key="frame" x="15" y="11" width="34" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GWJ-Eo-jWY">
-                                                    <rect key="frame" x="284" y="11" width="44" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -59,6 +43,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="filesTableView" destination="IOh-8R-m2d" id="fOR-1Q-Ivz"/>
+                        <outlet property="tView" destination="IOh-8R-m2d" id="hon-lW-Joc"/>
                         <outlet property="tableVIew" destination="IOh-8R-m2d" id="SqZ-BZ-qNi"/>
                     </connections>
                 </viewController>
@@ -129,7 +114,7 @@
         <!--Files-->
         <scene sceneID="zHU-Lf-9Ft">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jmI-4T-WOR" customClass="FirstViewNavController" customModule="EncryptMe" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jmI-4T-WOR" customClass="FilesViewNavController" customModule="EncryptMe" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Files" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qag-QK-c5b">

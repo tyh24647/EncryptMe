@@ -11,3 +11,8 @@
 "Validation overridden - debug mode enabled"="Validation overridden - debug mode enabled";
 "No User Account Created"="No User Account Created";
 "User property list file generated successfully"="User property list file generated successfully";
+"Completing property list file generation..."="Completing property list file generation...";
+"An unknown error occurred creating plist file"="An unknown error occurred creating plist file";
+"Unable to log in user"="Unable to log in user";
+"User login successful"="User login successful";
+

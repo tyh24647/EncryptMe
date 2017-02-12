@@ -23,7 +23,7 @@ public class AppData {
         get {
             return self.dataManager ?? generateDataManager()
         } set {
-            self.dataManager = newValue ?? generateDataManager()
+            _ = newValue ?? generateDataManager()
         }
     }
     

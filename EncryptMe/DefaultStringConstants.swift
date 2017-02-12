@@ -21,9 +21,20 @@ extension String {
         case DefaultUsername = "default"
         case DefaultPassword = "test"
         case UserProfilePlistName = "user-profile"
+        case UserTypeTitle = "user-type"
+        case AdminTitle = "is-administrator"
+        
+        enum UserTypes: String {
+            case Default = "Default"
+            case Admin = "Admin"
+            #if DEBUG
+            case Debug = "Debug"
+            #endif
+        }
     }
     
     enum UserValidationMsgs: String {
+        case LoginFailed = "Unable to log in user"
         case NoUserSetup = "No user account has been setup"
         case MissingUsername = "Missing username"
         case MissingPassword = "Missing password"
@@ -103,6 +114,48 @@ extension String {
     enum PlistDataTitles: String {
         case Username = "Username"
         case Password = "Password"
+    }
+    
+    enum Plist: String {
+        case Unknown = "An unknown error occurred creating plist file"
+        case CompletingTask = "Completing property list file generation..."
+        case Success = "User property list file generated successfully"
+    }
+    
+    enum Exceptions: String {
+        case DefaultException = "UnknownException"
+        init() { self = .DefaultException }
+        
+        enum Names: String {
+            case Default = "UnknownType"
+            init() { self = .Default }
+            
+            enum LoginExceptions: String {
+                case Default = "LoginException"
+                case MissingUsername = "MissingUsernameException"
+                case MissingPassword = "MissingPasswordException"
+                case MissingEncryptionKey = "MissingEncryptionKeyException"
+                case InvalidUsername = "InvalidUsernameException"
+                case InvalidPassword = "InvalidPasswordException"
+                case InvalidEncryptionKey = "InvalidEncryptionKeyException"
+                init() { self = .Default }
+            }
+        }
+        
+        enum Reasons: String {
+            case Default = "An unknown error has occurred"
+            init() { self = .Default }
+            
+            enum LoginReasons: String {
+                case DefaultReason = "No reason for the error is specified"
+                case MissingUsername = "Username cannot be found"
+                case MissingPassword = "Password cannot be found"
+                case MissingEncryptionKey = "Encryption key cannot be found"
+                case InvalidUsername = "Username is invalid"
+                case InvalidPassword = "Password is invalid"
+                case InvalidEncryptionKey = "Encryption key is invalid"
+            }
+        }
     }
 }
 

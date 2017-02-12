@@ -23,23 +23,17 @@ struct AppDefaults {
         case Custom
     }
     
+    private var _dir: String!
     var directory: String! {
         get {
-            return self.directory ?? kDocumentsDirectory
+            return _dir ?? kDocumentsDirectory
         } set {
-            self.directory = newValue ?? kDocumentsDirectory
+            _dir = newValue ?? kDocumentsDirectory
         }
     }
     
     private var pathType: DocumentPaths!
-    var path: String! {
-        get {
-            return self.path ?? kDocumentsDirectory
-        } set {
-            pathType = newValue ?? kDocumentsDirectory == kDocumentsDirectory ? .Default : .Custom
-            self.path = newValue ?? kDocumentsDirectory
-        }
-    }
+    var path: String!
     
     struct File {
         let documents = NSSearchPathForDirectoriesInDomains(

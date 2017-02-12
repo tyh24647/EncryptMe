@@ -18,8 +18,24 @@ open class UserDataManager {
     var appDefaults: AppDefaults!
     var appData: AppData!
     var user: User!
-    var userPlistPath: String!
-    var userPlistData: NSMutableDictionary!
+    
+    private var _userPlistPath: String!
+    var userPlistPath: String {
+        get {
+            return _userPlistPath ?? NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0].appending(String.UserDefaults.UserProfilePlistName.rawValue)
+        } set {
+            _userPlistPath = newValue
+        }
+    }
+    
+    private var _userPlistData: NSMutableDictionary!
+    var userPlistData: NSMutableDictionary! {
+        get {
+            return _userPlistData
+        } set {
+            _userPlistData = newValue ?? NSMutableDictionary()
+        }
+    }
     
     
     // MARK: - Constructors
@@ -67,13 +83,18 @@ open class UserDataManager {
     
     /// Initializes the data manager defaults
     fileprivate func initDefaults() -> Void {
-        let userProfilePlistName = String.FileTypes.PropertyList.rawValue
+        let plistTitle = String.UserDefaults.UserProfilePlistName.rawValue
+        let plistExtension = String.FileTypes.PropertyList.rawValue
+        let plistName = plistTitle.appending(plistExtension)
         
         self.shouldCreateUserPlist = true
         self.appDefaults = AppDefaults()
-        self.userPlistPath = appDefaults.path.appending(userProfilePlistName)
+        //self.userPlistPath = appDefaults.path.appending("/\(plistName)")
         
-        if !self.appDefaults.file.exists(userProfilePlistName) {
+        /*
+        self.userPlistPath = appDefaults.file.documents[0].appending("/\(plistName)")
+        
+        if !self.appDefaults.file.exists(plistName) {
             Console.Debug(debugMsg: "Generating user property list file")
             
             // generate plist data
@@ -83,13 +104,14 @@ open class UserDataManager {
                 }
             })
         } else {
-            if let fileUrl = Bundle.main.url(forResource: userProfilePlistName, withExtension: userProfilePlistName),
+            if let fileUrl = Bundle.main.url(forResource: plistTitle, withExtension: plistExtension),
                 let data = try? Data(contentsOf: fileUrl) {
                 if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [[String: Any]] {
                     Console.Debug(debugMsg: result?.description)
                 }
             }
         }
+ */
     }
     
     /// Generates a property list file (*.plist) in which the user's saved data will be stored. If
@@ -101,6 +123,7 @@ open class UserDataManager {
     ///     - error: Any error that is thrown in the file creation process
     /// - Returns: NSMutableDictionary containing the new plist data
     fileprivate func generatePlistDictData(completion handler:(_ success: Bool, _ error: NSError) -> Void) -> NSMutableDictionary {
+        /*
         var data: NSMutableDictionary!
         var defaultUsername: String!
         var defaultPassword: String!
@@ -196,6 +219,9 @@ open class UserDataManager {
         }
         
         return data
+        */
+        
+        return NSMutableDictionary()
     }
 }
 

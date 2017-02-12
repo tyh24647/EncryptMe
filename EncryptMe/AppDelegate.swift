@@ -13,11 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var user: User!
     var credentials: Credentials!
-    var dataManager: FBDataManager!
+    var dataManager: FBDataManager?
     var appData: AppData!
     var loginManager: LoginManager!
     var userDataManager: UserDataManager!
     var userPlistFile: PropertyListSerialization!
+    var isAdmin = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -28,9 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.appData =  AppData.init(withDataManager: dataManager)
         
         #if DEBUG
-            user = User()
-            user.username = String.UserDefaults.AdminUsername.rawValue
-            user.password = String.UserDefaults.AdminPassword.rawValue
+            user = User(debugMode: true)
+            user.username = String.UserDefaults.DebugUsername.rawValue
+            user.password = String.UserDefaults.DebugPassword.rawValue
+            self.isAdmin = true
         #else
             if appData.userIsLoggedIn {
                 user = appData.savedUser
@@ -39,33 +41,88 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if user.isAdmin {
                     user.username = String.UserDefaults.AdminUsername.rawValue
                     user.password = String.UserDefaults.AdminPassword.rawValue
+                    self.isAdmin = true
                 } else {
                     user.username = String.UserDefaults.DefaultUsername.rawValue
                     user.password = String.UserDefaults.DefaultPassword.rawValue
+                    self.isAdmin = false
                 }
             }
         #endif
         
-        // generate credentials for the user
         self.credentials = Credentials(withUsername: self.user.username, password: self.user.password)
+        self.loginManager = LoginManager(withCredentials: credentials)
+        self.user.isAdmin = true
         
-        // init login manager
-        self.loginManager = LoginManager(withCredentials: self.credentials)
-        loginManager.login()
+        // log in the user
+        var successfulLogin: Bool
+        do {
+            successfulLogin = try loginManager.login(withCompletion: { success, err in
+                if err != nil && !success {
+                    Console.Err(errMsg: err?.localizedDescription)
+                }
+                
+                return success
+            })
+        } catch {
+            successfulLogin = false
+            var errMsg: String?
+            if error.localizedDescription.isEmpty {
+                errMsg = "Unable to log in user".localized()
+                Console.Err(errMsg: errMsg)
+            }
+        }
+        
+        #if DEBUG
+            if successfulLogin {
+                Console.Debug(debugMsg: "User login successful".localized())
+            } else {
+                Console.Err(errMsg: "Unable to log in user".localized())
+            }
+        #endif
         
         // init user data manager
         self.userDataManager = UserDataManager()
+        userDataManager.appData = self.appData
         
-        /*
-        userDataManager.genrateUserPlistFile(withCompletion: { success, err in
-            do {
-                try 
-            } catch NSException e {
+        var plistStr: String?
+        do {    //                                                      <-- generate plist and set values
+            plistStr = try userDataManager.genrateUserPlistFile(withCompletion: { success, err in
+                if !err.localizedDescription.isEmpty {
+                    do {    //                                          <-- Retry until completion
+                        plistStr = try userDataManager.genrateUserPlistFile(withCompletion: { success, err in
+                            // TODO: Add functionality in the completion handler
+                        })
+                    } catch {
+                        Console.Err(errMsg: err.localizedDescription)
+                    }
+                }
                 
-            }
-        })
- */
+                #if DEBUG
+                    Console.Debug(
+                        debugMsg: success && err.localizedDescription.isEmpty ?
+                            String.Plist.Success.rawValue.localized() :
+                            String.Plist.CompletingTask.rawValue.localized()
+                    )
+                #endif
+            })
+        } catch {
+            let plistErrMsg = String(
+                error.localizedDescription.isEmpty ?
+                    String.Plist.Unknown.rawValue.localized() :
+                    error.localizedDescription
+            )
+            
+            Console.Err(errMsg: plistErrMsg ?? String.Plist.Unknown.rawValue)
+        }
         
+        if plistStr != nil {
+            plistStr = String.Empty
+            
+            #if DEBUG
+                Console.Debug(debugMsg: "User property list file: \(plistStr)")
+            #endif
+        }
         
         return true
     }

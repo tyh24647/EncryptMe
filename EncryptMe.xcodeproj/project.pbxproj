@@ -13,6 +13,8 @@
 		1A545C3D1E36D43200F15E31 /* FBDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A545C3C1E36D43200F15E31 /* FBDataManager.swift */; };
 		1A545C641E36D9C600F15E31 /* UserPrefsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A545C631E36D9C600F15E31 /* UserPrefsModel.swift */; };
 		1A545C661E36DA3500F15E31 /* AppPrefsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A545C651E36DA3500F15E31 /* AppPrefsModel.swift */; };
+		1A6802B91E3D82DC006FC5B7 /* StringEncryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6802B81E3D82DC006FC5B7 /* StringEncryptor.swift */; };
+		1A6802BC1E3D85B7006FC5B7 /* EncryptionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6802BB1E3D85B7006FC5B7 /* EncryptionProtocol.swift */; };
 		1A75C7071E393716000F92A1 /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A75C7061E393716000F92A1 /* PlistManager.swift */; };
 		1AA496E91E369C1D000A70ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA496E81E369C1D000A70ED /* AppDelegate.swift */; };
 		1AA496ED1E369C1D000A70ED /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA496EC1E369C1D000A70ED /* SettingsViewController.swift */; };
@@ -21,6 +23,7 @@
 		1AA496F51E369C1D000A70ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AA496F31E369C1D000A70ED /* LaunchScreen.storyboard */; };
 		1AA497011E369D31000A70ED /* MainTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA497001E369D31000A70ED /* MainTabBarControllerViewController.swift */; };
 		1AA497031E36A006000A70ED /* FilesViewNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA497021E36A006000A70ED /* FilesViewNavController.swift */; };
+		1AD2D79E1E50E137004AED74 /* String+NullCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2D79D1E50E137004AED74 /* String+NullCheck.swift */; };
 		1AE5814E1E36E23A0050FA6D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AE5814D1E36E23A0050FA6D /* Localizable.strings */; };
 		1AE581511E36E2850050FA6D /* DefaultStringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE581501E36E2850050FA6D /* DefaultStringConstants.swift */; };
 		1AE581541E36E5A10050FA6D /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE581531E36E5A10050FA6D /* String+Localizable.swift */; };
@@ -48,6 +51,8 @@
 		1A545C611E36D95800F15E31 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		1A545C631E36D9C600F15E31 /* UserPrefsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPrefsModel.swift; sourceTree = "<group>"; };
 		1A545C651E36DA3500F15E31 /* AppPrefsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPrefsModel.swift; sourceTree = "<group>"; };
+		1A6802B81E3D82DC006FC5B7 /* StringEncryptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringEncryptor.swift; sourceTree = "<group>"; };
+		1A6802BB1E3D85B7006FC5B7 /* EncryptionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptionProtocol.swift; sourceTree = "<group>"; };
 		1A75C7061E393716000F92A1 /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
 		1AA496E51E369C1D000A70ED /* EncryptMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA496E81E369C1D000A70ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +63,7 @@
 		1AA496F61E369C1D000A70ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AA497001E369D31000A70ED /* MainTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		1AA497021E36A006000A70ED /* FilesViewNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewNavController.swift; sourceTree = "<group>"; };
+		1AD2D79D1E50E137004AED74 /* String+NullCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NullCheck.swift"; sourceTree = "<group>"; };
 		1AE5814D1E36E23A0050FA6D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		1AE581501E36E2850050FA6D /* DefaultStringConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultStringConstants.swift; sourceTree = "<group>"; };
 		1AE581531E36E5A10050FA6D /* String+Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
@@ -97,6 +103,23 @@
 				1AE581751E372C690050FA6D /* Credentials.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		1A6802BA1E3D8563006FC5B7 /* Encryption */ = {
+			isa = PBXGroup;
+			children = (
+				1A6802BB1E3D85B7006FC5B7 /* EncryptionProtocol.swift */,
+				1A6802BD1E3D8A3F006FC5B7 /* Encryptors */,
+			);
+			name = Encryption;
+			sourceTree = "<group>";
+		};
+		1A6802BD1E3D8A3F006FC5B7 /* Encryptors */ = {
+			isa = PBXGroup;
+			children = (
+				1A6802B81E3D82DC006FC5B7 /* StringEncryptor.swift */,
+			);
+			name = Encryptors;
 			sourceTree = "<group>";
 		};
 		1AA496DC1E369C1D000A70ED = {
@@ -184,6 +207,7 @@
 		1AE581521E36E57B0050FA6D /* Strings */ = {
 			isa = PBXGroup;
 			children = (
+				1AD2D79D1E50E137004AED74 /* String+NullCheck.swift */,
 				1AE581531E36E5A10050FA6D /* String+Localizable.swift */,
 				1AE581501E36E2850050FA6D /* DefaultStringConstants.swift */,
 				1AE5814D1E36E23A0050FA6D /* Localizable.strings */,
@@ -247,6 +271,7 @@
 		1AE581791E374E720050FA6D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				1A6802BA1E3D8563006FC5B7 /* Encryption */,
 				1AE5817A1E374E850050FA6D /* Tasks */,
 			);
 			name = Utilities;
@@ -344,6 +369,7 @@
 				1A545BE41E36B2B000F15E31 /* FBItem.swift in Sources */,
 				1AE581781E372EDA0050FA6D /* ReadMe.md in Sources */,
 				1AE5815C1E36F2C00050FA6D /* DataModel.swift in Sources */,
+				1AD2D79E1E50E137004AED74 /* String+NullCheck.swift in Sources */,
 				1AE581511E36E2850050FA6D /* DefaultStringConstants.swift in Sources */,
 				1A545C661E36DA3500F15E31 /* AppPrefsModel.swift in Sources */,
 				1AE5816D1E3703100050FA6D /* AppDefaults.swift in Sources */,
@@ -351,7 +377,9 @@
 				1AE581821E375ED50050FA6D /* DispatchQueues.swift in Sources */,
 				1A75C7071E393716000F92A1 /* PlistManager.swift in Sources */,
 				1AE5817C1E374E9A0050FA6D /* AsyncTask.swift in Sources */,
+				1A6802B91E3D82DC006FC5B7 /* StringEncryptor.swift in Sources */,
 				1A545C3D1E36D43200F15E31 /* FBDataManager.swift in Sources */,
+				1A6802BC1E3D85B7006FC5B7 /* EncryptionProtocol.swift in Sources */,
 				1AA497031E36A006000A70ED /* FilesViewNavController.swift in Sources */,
 				1AE581801E375E3A0050FA6D /* SynchronousTask.swift in Sources */,
 				1AA497011E369D31000A70ED /* MainTabBarControllerViewController.swift in Sources */,

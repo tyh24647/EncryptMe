@@ -9,27 +9,17 @@
 import Foundation
 
 class Credentials {
+    
+    // MARK: Init constants
     private let kDefaultUsername = String.UserDefaults.DefaultUsername.rawValue
     private let kDefaultPassword = String.UserDefaults.DefaultPassword.rawValue
     
+    // MARK: Init vars
+    var username: String!
+    var password: String!
     var encryptionKey: String!
     
-    var username: String! {
-        get {
-            return self.username ?? kDefaultUsername
-        } set {
-            self.username = newValue ?? kDefaultUsername
-        }
-    }
-    
-    var password: String! {
-        get {
-            return self.password ?? kDefaultPassword
-        } set {
-            self.password = newValue ?? kDefaultPassword
-        }
-    }
-    
+ 
     /// Default constructor
     init() {
         initDefaultCredentials()
@@ -53,14 +43,14 @@ class Credentials {
     fileprivate func initCredentials(withUsername username: String!, password: String!) -> Void {
         self.username = username ?? kDefaultUsername
         self.password = password ?? kDefaultPassword
-        self.encryptionKey = generateEncryptionKey()
+        self.encryptionKey = encryptionKey ?? generateEncryptionKey()
     }
     
     /// Initializes a default credentials object
     fileprivate func initDefaultCredentials() -> Void {
         self.username = kDefaultUsername
         self.password = kDefaultPassword
-        self.encryptionKey = generateEncryptionKey()
+        self.encryptionKey = encryptionKey ?? generateEncryptionKey()
     }
     
     /// Generates a new encryption key based on hashes of the user's information, which
@@ -68,11 +58,14 @@ class Credentials {
     ///
     /// - Returns: The encryption key for the specific user
     fileprivate func generateEncryptionKey() -> String {
-        var encKey: String!
+        //var encKey: String!
         
         // TODO encryption
         
-        return encKey
+        //return encKey!
+        // TEST TEST TEST TEST TEST
+        return ""
+        // TEST TEST TEST TEST TEST
     }
 }
 

@@ -11,12 +11,10 @@ import UIKit
 class FilesTableViewController: UITableViewController {
     
     // init constants
-    let kDataManager = AppData.sharedInstance
+    //let kDataManager = AppData.sharedInstance
     let kDefaultNumSections = 1
     
-    // init IBOutlets
-    @IBOutlet weak var filesTableView: UITableView!
-    
+    @IBOutlet weak var tView: UITableView!
     // init vars
     var user: User!
     var files: [FBItem] = []
@@ -25,10 +23,12 @@ class FilesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         self.clearsSelectionOnViewWillAppear = true
-        self.tableView = filesTableView ?? self.tableView
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.user = kDataManager.savedUser
+        self.user = User()//kDataManager.savedUser
     }
 
     override func didReceiveMemoryWarning() {
