@@ -52,7 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.credentials = Credentials(withUsername: self.user.username, password: self.user.password)
         self.loginManager = LoginManager(withCredentials: credentials)
-        self.user.isAdmin = true
         
         // log in the user
         var successfulLogin: Bool
